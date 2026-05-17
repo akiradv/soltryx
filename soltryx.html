@@ -536,7 +536,6 @@
         <p><span data-i18n="footerRights">© 2026 North Studios.</span> <a href="mailto:northstudiosbr@gmail.com">northstudiosbr@gmail.com</a></p>
     </div>
 </footer>
-
 <script src="lang/pt.js?v=4"></script>
 <script src="lang/en.js?v=4"></script>
 <script src="i18n.js"></script>
@@ -557,41 +556,6 @@
     }
   })();
 </script>
-
-<script>
-  (function() {
-    // Data de lançamento: 17 de maio de 2026, 00:00:00 (horário local)
-    const launchDate = new Date(2026, 4, 17, 0, 0, 0).getTime(); // mês 4 = maio (0-indexado)
-
-    const countdownEl = document.getElementById('countdown-offcenter');
-    if (!countdownEl) return;
-
-    function updateCountdown() {
-      const now = Date.now();
-      const distance = launchDate - now;
-
-      if (distance < 0) {
-        // Já passou da data; exibe mensagem de lançado
-        countdownEl.innerHTML = '<span data-i18n="alreadyReleased">Já disponível!</span>';
-        // Se quiser atualizar automaticamente o data-i18n, chame a função de tradução, mas aqui é opcional
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Monta a string do contador (sem tradução, apenas números e abreviações internacionais)
-      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    // Atualiza a cada segundo
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  })();
-</script>
-
 <script src="script.js"></script>
 </body>
 </html>
