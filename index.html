@@ -21,19 +21,14 @@
             background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 70%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
             margin: 0;
-            padding: 1.5rem;
+            padding: 0;
             position: relative;
         }
         
-        /* 🌟 Bolhas de luz com blur */
         .light-orb {
-            position: absolute;
+            position: fixed;
             border-radius: 50%;
             filter: blur(80px);
             opacity: 0.15;
@@ -54,21 +49,19 @@
             bottom: -50px;
             right: -50px;
         }
-        .orb-3 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, #ffffff, #aaaaaa);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
         
         .container {
             max-width: 1000px;
             width: 100%;
-            text-align: center;
+            margin: 0 auto;
+            padding: 2rem;
             position: relative;
             z-index: 1;
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 5rem 0 3rem;
         }
         .logo h1 {
             font-family: 'Bebas Neue', sans-serif;
@@ -99,11 +92,40 @@
             margin: 0 auto 2rem;
             opacity: 0.5;
         }
+
+        .about-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
+        .about-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+        .about-section p {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
         .artists-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
         }
         .artist-card {
             background-color: #111;
@@ -127,7 +149,6 @@
             width: 100%;
             max-width: 180px;
             border-radius: 8px;
-            margin-bottom: 0.3rem;
             transition: transform 0.3s;
         }
         .artist-card:hover img {
@@ -143,17 +164,56 @@
             color: #aaa;
             font-size: 0.9rem;
         }
+
+        .contact-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
+        .contact-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+        .contact-section p {
+            color: #aaa;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #fff;
+            color: #000;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .contact-btn:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
         footer {
-            margin-top: 2rem;
+            text-align: center;
+            padding: 2rem;
             color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         footer a {
             color: #aaa;
             text-decoration: none;
         }
 
-        /* Seletor de idioma */
         .lang-switcher {
             position: fixed;
             top: 1rem;
@@ -184,40 +244,87 @@
             color: #000;
             border-color: #fff;
         }
+                .contact-form-hub {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .form-group-hub input,
+        .form-group-hub textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+        .form-group-hub input:focus,
+        .form-group-hub textarea:focus {
+            border-color: #fff;
+            outline: none;
+        }
+        .form-group-hub textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        [data-fs-success] {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    border-radius: 10px;
+    animation: slideFadeIn 0.5s ease;
+}
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}        
     </style>
 </head>
 <body>
 
-<!-- 🌟 Bolhas de luz decorativas -->
 <div class="light-orb orb-1"></div>
 <div class="light-orb orb-2"></div>
-<div class="light-orb orb-3"></div>
 
-<!-- Seletor de Idioma -->
 <div class="lang-switcher" id="langSwitcher">
     <button class="lang-btn" onclick="changeLanguage('pt-br')" id="btn-pt">PT</button>
     <button class="lang-btn" onclick="changeLanguage('en')" id="btn-en">EN</button>
 </div>
 
 <div class="container">
-    <div class="logo">
-        <h1>
-            <i class="fa-regular fa-star north-star"></i>
-            North Studios
-        </h1>
-        <p class="subtitle" data-i18n="hubSubtitle">Selo Independente</p>
-        <div class="divider"></div>
+    <div class="header-section">
+        <div class="logo">
+            <h1>
+                <i class="fa-regular fa-star north-star"></i>
+                North Studios
+            </h1>
+            <p class="subtitle" data-i18n="hubSubtitle">Selo Independente</p>
+            <div class="divider"></div>
+        </div>
     </div>
 
+    <div class="about-section">
+        <h2 data-i18n="hubAboutTitle">Sobre a North Studios</h2>
+        <p data-i18n="hubAboutText">A North Studios é um selo independente criado por Akira Dev. Aqui, a música vem em primeiro lugar — sem pressa, sem pressão, apenas o som guiando o caminho. Trabalhamos com artistas que têm personalidade e querem explorar sua própria sonoridade, seja ela qual for. Se você faz música com autenticidade, tem um espaço aqui.</p>
+    </div>
+
+    <h2 class="section-title" data-i18n="hubArtistsTitle">Artistas</h2>
     <div class="artists-grid">
-        <!-- Card do Soltryx -->
         <a href="soltryx.html" class="artist-card">
             <img src="covers/soltryx/soltryxlogo.png" alt="Soltryx" onerror="this.src='https://via.placeholder.com/200x200/222/fff?text=SOLTRYX'">
             <h2>Soltryx</h2>
             <p data-i18n="hubSoltryxDesc">Explorando novos universos sonoros através de beats eletrônicos e jazz.</p>
         </a>
-
-        <!-- Card do Orange Isle -->
         <a href="orangeisle.html" class="artist-card">
             <img src="covers/orangeisle/orangelogo.png" alt="Orange Isle" onerror="this.src='https://via.placeholder.com/200x200/222/fff?text=ORANGE+ISLE'">
             <h2>Orange Isle</h2>
@@ -225,17 +332,42 @@
         </a>
     </div>
 
+     <div class="contact-section">
+        <h2 data-i18n="hubContactTitle">Contato</h2>
+        <p data-i18n="hubContactText">Quer lançar sua música pela North Studios? Entre em contato que a gente conversa sobre valores. Sempre fazemos descontos bons pra quem tá começando.</p>
+        
+        <form id="contactFormHub" class="contact-form-hub">
+    <input type="hidden" name="artista" value="Hub North Studios">
+    <input type="hidden" name="_subject" value="Contato via Hub da North Studios">
+    <input type="hidden" name="_next" value="https://akiradv.github.io/northstudios/thanks.html">
+    
+    <div data-fs-success style="display:none; color: #fff; text-align:center; margin-bottom:1rem;">Mensagem enviada! 🚀</div>
+    <div data-fs-error style="display:none; color: #ff6b6b; text-align:center; margin-bottom:1rem;"></div>
+
+    <div class="form-group-hub">
+        <input type="text" id="nome-hub" name="nome" data-fs-field required placeholder="Nome">
+    </div>
+    <div class="form-group-hub">
+        <input type="email" id="email-hub" name="email" data-fs-field required placeholder="Email">
+    </div>
+    <div class="form-group-hub">
+        <textarea id="mensagem-hub" name="mensagem" rows="4" data-fs-field required placeholder="Mensagem"></textarea>
+    </div>
+    <button type="submit" class="contact-btn" data-fs-submit-btn>
+        <i class="fas fa-paper-plane"></i> <span data-i18n="hubContactBtn">Falar comigo</span>
+    </button>
+</form>
+    </div>
+
     <footer>
         <p>© 2026 North Studios. <a href="mailto:northstudiosbr@gmail.com">northstudiosbr@gmail.com</a></p>
     </footer>
 </div>
 
-<!-- Scripts de tradução -->
-<script src="lang/pt.js"></script>
-<script src="lang/en.js"></script>
+<script src="lang/pt.js?v=4"></script>
+<script src="lang/en.js?v=4"></script>
 <script src="i18n.js"></script>
 
-<!-- Marca o idioma ativo no seletor -->
 <script>
   (function() {
     const currentLang = localStorage.getItem('i18n_lang') || 'pt-br';
@@ -246,6 +378,49 @@
       btnEN.classList.toggle('active', currentLang === 'en');
     }
   })();
+</script>
+
+<script>
+    const contactFormHub = document.getElementById('contactFormHub');
+    const successMsg = contactFormHub.querySelector('[data-fs-success]');
+    const errorMsg = contactFormHub.querySelector('[data-fs-error]');
+    const submitBtn = contactFormHub.querySelector('[data-fs-submit-btn]');
+
+    contactFormHub.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Desabilita o botão e mostra "Enviando..."
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+
+        const formData = new FormData(contactFormHub);
+
+        try {
+            const response = await fetch('https://formspree.io/f/xnjlejev', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                // Sucesso!
+                successMsg.style.display = 'block';
+                contactFormHub.reset();
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span data-i18n="hubContactBtn">Falar comigo</span>';
+            } else {
+                // Erro
+                errorMsg.textContent = 'Erro ao enviar. Tente novamente.';
+                errorMsg.style.display = 'block';
+            }
+        } catch (err) {
+            errorMsg.textContent = 'Erro de conexão. Verifique sua internet.';
+            errorMsg.style.display = 'block';
+        }
+
+        submitBtn.disabled = false;
+    });
 </script>
 </body>
 </html>
